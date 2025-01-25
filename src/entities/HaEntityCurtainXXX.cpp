@@ -33,7 +33,7 @@ void HaEntityCurtainXXX::publishConfiguration() {
 
 void HaEntityCurtainXXX::republishState() { publishCurtainXXX(_state, _position); }
 
-void HaEntityCurtainXXX::publishCurtain(std::optional<State> state, std::optional<uint8_t> position) {
+void HaEntityCurtainXXX::publishCurtainXXX(std::optional<State> state, std::optional<uint8_t> position) {
   if (state) {
     std::string str = "";
     switch (*state) {
