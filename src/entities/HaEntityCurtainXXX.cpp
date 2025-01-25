@@ -31,7 +31,7 @@ void HaEntityCurtainXXX::publishConfiguration() {
   _ha_bridge.publishConfiguration(COMPONENT, OBJECT_ID, _child_object_id, doc);
 }
 
-void HaEntityCurtainXXX::republishState() { publishCurtain(_state, _position); }
+void HaEntityCurtainXXX::republishState() { publishCurtainXXX(_state, _position); }
 
 void HaEntityCurtainXXX::publishCurtain(std::optional<State> state, std::optional<uint8_t> position) {
   if (state) {
