@@ -1,5 +1,5 @@
-#ifndef __HA_ENTITY_CURTAIN_H__
-#define __HA_ENTITY_CURTAIN_H__
+#ifndef __HA_ENTITY_CURTAINXXX_H__
+#define __HA_ENTITY_CURTAINXXX_H__
 
 #include <HaBridge.h>
 #include <HaEntity.h>
