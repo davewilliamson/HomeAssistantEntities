@@ -13,7 +13,7 @@
  * changed independently and will report back state to Home Assistant. See
  * https://www.home-assistant.io/integrations/cover.mqtt/
  */
-class HaEntityCurtain : public HaEntity {
+class HaEntityCurtainXXX : public HaEntity {
 public:
   /**
    * @brief Construct a new Ha Entity Curtain object
@@ -33,7 +33,7 @@ public:
    * all state/command topics and so on. Leave as empty string for no child object ID.  Valid characters
    * are [a-zA-Z0-9_-] (machine readable, not human readable)
    */
-  HaEntityCurtain(HaBridge &ha_bridge, std::string name, std::string child_object_id);
+  HaEntityCurtainXXX(HaBridge &ha_bridge, std::string name, std::string child_object_id);
 
 public:
   void publishConfiguration() override;
@@ -54,7 +54,7 @@ public:
    * @param state the curtain state. Or absent (std::nullopt) if state is unknown.
    * @param position of the curtain, between 0 and 100. Or absent (std::nullopt) if position is unknown.
    */
-  void publishCurtain(std::optional<State> state, std::optional<uint8_t> position = std::nullopt);
+  void publishCurtainXXX(std::optional<State> state, std::optional<uint8_t> position = std::nullopt);
 
   enum class Action {
     Open,
