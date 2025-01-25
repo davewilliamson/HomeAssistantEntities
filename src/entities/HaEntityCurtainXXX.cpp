@@ -2,10 +2,10 @@
 #include <HaUtilities.h>
 #include <IJson.h>
 
-#define COMPONENT "cover"
-#define OBJECT_ID "curtain"
-#define OBJECT_ID_STATE "state"
-#define OBJECT_ID_POSITION "position"
+#define COMPONENT "coverXXX"
+#define OBJECT_ID "curtainXXX"
+#define OBJECT_ID_STATE "stateXXX"
+#define OBJECT_ID_POSITION "positionXXX"
 
 // NOTE! We have swapped object ID and child object ID to get a nicer state/command topic path.
 
