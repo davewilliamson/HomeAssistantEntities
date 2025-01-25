@@ -3,7 +3,7 @@
 #include <IJson.h>
 
 #define COMPONENT "cover"
-#define OBJECT_ID "cover"
+#define OBJECT_ID "Garage door"
 #define OBJECT_ID_STATE "state"
 #define OBJECT_ID_POSITION "position"
 
