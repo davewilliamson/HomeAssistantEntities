@@ -3,7 +3,7 @@
 #include <IJson.h>
 
 #define COMPONENT "cover"
-#define OBJECT_ID "Garage door"
+#define OBJECT_ID "garage"
 #define OBJECT_ID_STATE "state"
 #define OBJECT_ID_POSITION "position"
 
@@ -20,7 +20,7 @@ void HaEntityCover::publishConfiguration() {
   } else {
     doc["name"] = nullptr;
   }
-  doc["device_class"] = "cover";
+  doc["device_class"] = "garage";
   doc["state_topic"] = _ha_bridge.getTopic(HaBridge::TopicType::State, COMPONENT, _child_object_id, OBJECT_ID_STATE);
   doc["command_topic"] =
       _ha_bridge.getTopic(HaBridge::TopicType::Command, COMPONENT, _child_object_id, OBJECT_ID_STATE);
