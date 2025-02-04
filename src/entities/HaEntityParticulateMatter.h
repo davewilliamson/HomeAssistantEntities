@@ -9,8 +9,6 @@
 #include <optional>
 #include <string>
 
-using namespace homeassistantentities::Sensor;
-
 /**
  * @brief Represent a patriculate matter sensor (e.g. PMS5003), μg/m³.
  */
@@ -79,7 +77,7 @@ public:
   void publishConcentration(double concentration) { _ha_entity_sensor.publishValue(concentration); }
 
 private:
-  const DeviceClass &deviceClass(const Configuration &configuration) const {
+  const homeassistantentities::DeviceClass &deviceClass(const Configuration &configuration) const {
     switch (configuration.size) {
     case Size::pm1:
       return _pm1;
@@ -91,22 +89,22 @@ private:
     return _pm10; // noop
   }
 
-  const std::optional<UnitType> unitOfMeasurement(const Configuration &configuration) const {
+  const std::optional<homeassistantentities::UnitType> unitOfMeasurement(const Configuration &configuration) const {
     switch (configuration.size) {
     case Size::pm1:
-      return Pm1::Unit::ug_m3;
+      return homeassistantentities::Sensor::Pm1::Unit::ug_m3;
     case Size::pm25:
-      return Pm25::Unit::ug_m3;
+      return homeassistantentities::Sensor::Pm25::Unit::ug_m3;
     case Size::pm10:
-      return Pm10::Unit::ug_m3;
+      return homeassistantentities::Sensor::Pm10::Unit::ug_m3;
     }
     return std::nullopt;
   }
 
 private:
-  const Pm1 _pm1;
-  const Pm25 _pm25;
-  const Pm10 _pm10;
+  const homeassistantentities::Sensor::Pm1 _pm1;
+  const homeassistantentities::Sensor::Pm25 _pm25;
+  const homeassistantentities::Sensor::Pm10 _pm10;
   HaEntitySensor _ha_entity_sensor;
 };
 

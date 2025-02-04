@@ -9,15 +9,13 @@
 #include <optional>
 #include <string>
 
-using namespace homeassistantentities::Sensor::Undefined;
-
 /**
  * @brief Represent a Particles/Units/things per volume sensor (see
  * homeassistantentities::Sensor::UnitConcentration:Unit in HaDeviceClasses.h).
  */
 class HaEntityUnitConcentration : public HaEntity {
 public:
-  using Unit = UnitConcentration::Unit;
+  using Unit = homeassistantentities::Sensor::Undefined::UnitConcentration::Unit;
 
   struct Configuration {
     /**
@@ -76,7 +74,7 @@ public:
   void publishConcentration(double concentration) { _ha_entity_sensor.publishValue(concentration); }
 
 private:
-  const UnitConcentration _unit_concentration;
+  const homeassistantentities::Sensor::Undefined::UnitConcentration _unit_concentration;
   HaEntitySensor _ha_entity_sensor;
 };
 

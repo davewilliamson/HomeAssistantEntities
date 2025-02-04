@@ -2,6 +2,8 @@
 #include <HaUtilities.h>
 #include <IJson.h>
 
+using namespace homeassistantentities;
+
 HaEntitySensor::HaEntitySensor(HaBridge &ha_bridge, std::string name, std::optional<std::string> child_object_id,
                                Configuration configuration)
     : _name(trim(name)), _ha_bridge(ha_bridge), _object_id(configuration.device_class.objectId()),
@@ -52,12 +54,13 @@ void HaEntitySensor::publishConfiguration() {
   }
 
   doc["state_topic"] = _ha_bridge.getTopic(HaBridge::TopicType::State, _component, _object_id, _child_object_id);
-  _ha_bridge.publishConfiguration(_component, _object_id, _child_object_id, doc);
 
   if (_configuration.with_attributes) {
     doc["json_attributes_topic"] =
         _ha_bridge.getTopic(HaBridge::TopicType::Attributes, _component, _object_id, _child_object_id);
   }
+
+  _ha_bridge.publishConfiguration(_component, _object_id, _child_object_id, doc);
 }
 
 void HaEntitySensor::republishState() {
