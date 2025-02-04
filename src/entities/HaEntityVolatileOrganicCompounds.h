@@ -9,8 +9,6 @@
 #include <optional>
 #include <string>
 
-using namespace homeassistantentities::Sensor;
-
 /**
  * @brief Represent a volatile organic compounds sensor, concentration in μg/m³ or parts in ppb/parts per billion.
  */
@@ -79,7 +77,7 @@ public:
   void publishConcentration(double concentration) { _ha_entity_sensor.publishValue(concentration); }
 
 private:
-  const DeviceClass &deviceClass(const Configuration &configuration) const {
+  const homeassistantentities::DeviceClass &deviceClass(const Configuration &configuration) const {
     switch (configuration.unit) {
     case Unit::Concentration:
       return _volatile_organic_compounds;
@@ -89,19 +87,19 @@ private:
     return _volatile_organic_compounds_parts; // noop
   }
 
-  std::optional<UnitType> unitOfMeasurement(const Configuration &configuration) const {
+  std::optional<homeassistantentities::UnitType> unitOfMeasurement(const Configuration &configuration) const {
     switch (configuration.unit) {
     case Unit::Concentration:
-      return VolatileOrganicCompounds::Unit::ug_m3;
+      return homeassistantentities::Sensor::VolatileOrganicCompounds::Unit::ug_m3;
     case Unit::Parts:
-      return VolatileOrganicCompoundsParts::Unit::ppb;
+      return homeassistantentities::Sensor::VolatileOrganicCompoundsParts::Unit::ppb;
     }
     return std::nullopt;
   }
 
 private:
-  const VolatileOrganicCompounds _volatile_organic_compounds;
-  const VolatileOrganicCompoundsParts _volatile_organic_compounds_parts;
+  const homeassistantentities::Sensor::VolatileOrganicCompounds _volatile_organic_compounds;
+  const homeassistantentities::Sensor::VolatileOrganicCompoundsParts _volatile_organic_compounds_parts;
   HaEntitySensor _ha_entity_sensor;
 };
 
